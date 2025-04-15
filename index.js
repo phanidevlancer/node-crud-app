@@ -1,3 +1,4 @@
+//https://www.youtube.com/watch?v=_7UQPve99r4
 const express = require('express')
 const app = express()
 
@@ -14,8 +15,12 @@ app.listen(3000, () => {
 })
 
 app.post('/api/products', (req, res) => {
-    console.log('Body is ', req.body)
-    res.send(req.body)
+    try {
+        console.log(2 / 0)
+        console.log(0 / 2)
+    } catch (error) {
+        res.status(500).json({ message: error.message })
+    }
 })
 
 app.get('/', (req, res) =>
